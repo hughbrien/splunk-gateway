@@ -11,8 +11,11 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.json());
+
+// Due to Instana setting the wrong content-type force to string body
+app.use(bodyParser.text({type: '*/*'}));
 
 app.get('/health', (req, res) => {
     res.send('OK');
@@ -21,12 +24,26 @@ app.get('/health', (req, res) => {
 // Gateway endpoint. Instana calls here
 app.post('/gateway', (req, res) => {
     console.log('gateway called');
+
+    // parse to JSON here
+    var data;
+    try {
+        data = JSON.parse(req.body);
+    } catch(e) {
+        console.error('JSON parse error', e);
+        res.status(500).send(e);
+        return;
+    }
+
     // wrap it
     var evt = {
-        event: req.body,
+        event: data,
         sourcetype: 'instana'
     };
-    // console.log('event', evt);
+    if(config.debug) {
+        console.log('content type', req.get('Content-Type'));
+        console.log('event', JSON.stringify(evt, null, 4));
+    }
 
     // forward to splunk
     request({
@@ -54,7 +71,8 @@ app.post('/gateway', (req, res) => {
 // Configuration pulled from ENV
 const config = {
     splunkUrl: process.env.GATEWAY_SPLUNK_URL,
-    splunkKey: process.env.GATEWAY_SPLUNK_KEY
+    splunkKey: process.env.GATEWAY_SPLUNK_KEY,
+    debug: process.env.GATEWAY_DEBUG || false
 };
 // make sure all the info is there
 var missing = false;
