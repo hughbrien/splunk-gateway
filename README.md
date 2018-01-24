@@ -11,4 +11,5 @@ The following environment variables must be set:
 - GATEWAY_SPLUNK_URL - The URL of the Splunk event receiver e.g. http://splunk.host.com/services/collector
 - GATEWAY_SPLUNK_KEY - The API token generated from via the Splunk console
 - GATEWAY_SERVER_PORT - Port to listen on. Default 8080
+- GATEWAY_DEBUG - Extra debug info to the logs. Just set this something e.g. 1 This could be a lot of data.
 
