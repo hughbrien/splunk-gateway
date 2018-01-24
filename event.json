@@ -1,0 +1,14 @@
+{
+  "issue": {
+    "id": "53650436-8e35-49a3-a610-56b442ae7620",
+    "state": "OPEN",
+    "start": 1460537793322,
+    "severity": 5,
+    "text": "Garbage Collection Activity High (11%)",
+    "suggestion": "Tune your Garbage Collector, reduce allocation rate through code changes",
+    "link": "https://XXXXXXX/#/?snapshotId=rjhkZXdNzegliVVEswMScGNn0YY",
+    "fqdn": "host1.demo.com",
+    "tags": "production, documents, elasticsearch"
+  }
+}
+
