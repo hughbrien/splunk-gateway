@@ -1,14 +1,19 @@
 {
-  "issue": {
-    "id": "53650436-8e35-49a3-a610-56b442ae7620",
-    "state": "OPEN",
-    "start": 1460537793322,
-    "severity": 5,
-    "text": "Garbage Collection Activity High (11%)",
-    "suggestion": "Tune your Garbage Collector, reduce allocation rate through code changes",
-    "link": "https://XXXXXXX/#/?snapshotId=rjhkZXdNzegliVVEswMScGNn0YY",
-    "fqdn": "host1.demo.com",
-    "tags": "production, documents, elasticsearch"
-  }
+    "eventId": "JOfexICATD-EyY1TdaStKw",
+    "snapshotId": "vyg8a9-kylwbYXGcE_WxxivlMYk",
+    "timeline.fm": 1516800872000,
+    "timeline.to": 1516801172000,
+    "timeline.ws": 600000,
+    "issue": {
+        "id": "53650436-8e35-49a3-a610-56b442ae7620",
+        "state": "OPEN",
+        "start": 1460537793322,
+        "severity": 5,
+        "text": "Garbage Collection Activity High (11%)",
+        "suggestion": "Tune your Garbage Collector, reduce allocation rate through code changes",
+        "link": "https://XXXXXXX/#/?snapshotId=rjhkZXdNzegliVVEswMScGNn0YY",
+        "fqdn": "host1.demo.com",
+        "tags": "production, documents, elasticsearch"
+    }
 }
 
